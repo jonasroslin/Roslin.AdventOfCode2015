@@ -92,6 +92,5 @@ namespace Roslin.AdventOfCode.Day5
                 while (reader.Peek() >= 0)
                     yield return reader.ReadLine();
         }
-
     }
 }
