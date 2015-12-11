@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslin.AdventOfCode.Day3", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslin.AdventOfCode.Day4", "Roslin.AdventOfCode.Day4\Roslin.AdventOfCode.Day4.csproj", "{EBCB5B11-4C32-43F8-BDB0-14F3BF1D2DA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslin.AdventOfCode.Day5", "Roslin.AdventOfCode.Day5\Roslin.AdventOfCode.Day5.csproj", "{3219A05D-CD8F-4371-802F-C19F39CB3D6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EBCB5B11-4C32-43F8-BDB0-14F3BF1D2DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBCB5B11-4C32-43F8-BDB0-14F3BF1D2DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBCB5B11-4C32-43F8-BDB0-14F3BF1D2DA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3219A05D-CD8F-4371-802F-C19F39CB3D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3219A05D-CD8F-4371-802F-C19F39CB3D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3219A05D-CD8F-4371-802F-C19F39CB3D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3219A05D-CD8F-4371-802F-C19F39CB3D6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
