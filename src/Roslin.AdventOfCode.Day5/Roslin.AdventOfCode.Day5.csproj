@@ -52,11 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnyPairAppearsAtLeastTwiceRule.cs" />
     <Compile Include="AtLeastOneLetterThatAppearsTwiceRule.cs" />
+    <Compile Include="AtLeastOneLetterWhichRepeatsWithExactlyOneLetterBetweenThemRule.cs" />
     <Compile Include="CheckIfWordIsNice.cs" />
     <Compile Include="ConstantRule.cs" />
     <Compile Include="IRule.cs" />
     <Compile Include="PartOne.cs" />
+    <Compile Include="PartTwo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VowelsRule.cs" />
   </ItemGroup>

@@ -14,7 +14,14 @@ namespace Roslin.AdventOfCode.Day5
         public void Should_be_able_to_get_correct_number_of_nice_words()
         {
             var readInput = ReadInput();
-            var checkIfWordIsNice = new CheckIfWordIsNice(new List<IRule> { new VowelsRule(), new AtLeastOneLetterThatAppearsTwiceRule() });
+
+            var rules = new List<IRule>
+            {
+                new VowelsRule(),
+                new AtLeastOneLetterThatAppearsTwiceRule()
+            };
+
+            var checkIfWordIsNice = new CheckIfWordIsNice(rules);
             var numberOfNiceWords = readInput.Select(word => checkIfWordIsNice.IsNice(word, new ConstantRule())).Count(isNice => isNice);
 
             numberOfNiceWords.Should().Be(238);
@@ -27,7 +34,7 @@ namespace Roslin.AdventOfCode.Day5
         [TestCase("dvszwmarrgswjxmb", false)]
         public void Should_be_able_to_combine_rules(string word, bool expected)
         {
-            var checkIfWordIsNice = new CheckIfWordIsNice(new List<IRule> {new VowelsRule(), new AtLeastOneLetterThatAppearsTwiceRule()});
+            var checkIfWordIsNice = new CheckIfWordIsNice(new List<IRule> { new VowelsRule(), new AtLeastOneLetterThatAppearsTwiceRule() });
             var isNice = checkIfWordIsNice.IsNice(word, new ConstantRule());
             isNice.Should().Be(expected);
         }

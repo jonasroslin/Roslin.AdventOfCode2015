@@ -19,5 +19,19 @@ namespace Roslin.AdventOfCode.Day5
 
             return nice && isNice;
         }
+
+        public bool IsNice(string word)
+        {
+            foreach (var rule in _rules)
+            {
+                var nice = rule.IsNice(word);
+                if (nice == false)
+                    return false;
+            }
+
+            return true;
+            //var isNice = _rules.All(rule => rule.IsNice(word));
+            //return isNice;
+        }
     }
 }
