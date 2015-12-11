@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Node.cs" />
     <Compile Include="PartOne.cs" />
+    <Compile Include="PartTwo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -21,7 +21,6 @@ namespace Roslin.AdventOfCode.Day3
         [TestCase(">", 2)]
         [TestCase("^>v<", 4)]
         [TestCase("^v^v^v^v^v", 2)]
-        [TestCase("", 0)]
         public void Should_be_able_to_count_unique_houses(string condition, int expected)
         {
             var count = CountNumberOfUniqueHouses(condition);
