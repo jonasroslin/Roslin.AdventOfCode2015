@@ -1,67 +1,78 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using FluentAssertions;
 using NUnit.Framework;
 
 namespace Roslin.AdventOfCode.Day6
 {
-    public enum LightAction
-    {
-        TurnOn, TurnOff, Toggle
-    }
-
-    public class InstructionAction
-    {
-        public int FromX { get; set; }
-        public int FromY { get; set; }
-        public int ToX { get; set; }
-        public int ToY { get; set; }
-        public LightAction Action { get; set; }
-
-        public InstructionAction(string intruction)
-        {
-            var strings = intruction.Split(' ');
-            SetAction(strings[0]);
-        }
-
-        public void SetAction(string action)
-        {
-            switch (action)
-            {
-                case "toggle":
-                    Action = LightAction.Toggle;
-                    break;
-                case "turn on":
-                    Action = LightAction.TurnOn;
-                    break;
-                case "turn off":
-                    Action = LightAction.TurnOff;
-                    break;
-            }
-        }
-    }
-
     [TestFixture]
     public class PartOne
     {
-        [Test]
-        public void Foo()
+        private bool[,] _grid;
+
+        [SetUp]
+        public void SetUp()
         {
-            bool[,] grid = new bool[1000, 1000];
-            grid[300, 200] = true;
-            var b = grid[300, 200];
+            _grid = new bool[1000, 1000];
+        }
+        public IEnumerable<string> ReadInput()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            using (var stream = assembly.GetManifestResourceStream("Roslin.AdventOfCode.Day6.input.txt"))
+            using (var reader = new StreamReader(stream))
+                while (reader.Peek() >= 0)
+                    yield return reader.ReadLine();
+        }
+
+        [Test]
+        public void Should_be_able_to_follow_all_instructions()
+        {
+            var instructions = ReadInput();
+            foreach (var instruction in instructions)
+            {
+                var instructionAction = new InstructionAction(instruction);
+                ChangeGrid(instructionAction, _grid);
+            }
+
+            var calculateNumberOfLights = CalculateNumberOfLights(_grid);
+            calculateNumberOfLights.Should().Be(543903);
+        }
+
+        [Test]
+        public void Should_be_able_to_toggle()
+        {
+            var instructionAction1 = new InstructionAction { Action = LightAction.TurnOn, FromX = 0, FromY = 0, ToX = 999, ToY = 999 };
+            var instructionAction2 = new InstructionAction { Action = LightAction.Toggle, FromX = 499, FromY = 499, ToX = 500, ToY = 500 };
+            ChangeGrid(instructionAction1, _grid);
+            ChangeGrid(instructionAction2, _grid);
+
+            var calculateNumberOfLights = CalculateNumberOfLights(_grid);
+            calculateNumberOfLights.Should().Be(999996);
+        }
+
+        [Test]
+        [TestCase("turn on 0,0 through 999,999", 1000000)]
+        [TestCase("toggle 0,0 through 999,0", 1000)]
+        [TestCase("turn off 499,499 through 500,500", 0)]
+        public void Should_be_able_to_follow_instruction(string instruction, int expected)
+        {
+            var instructionAction = new InstructionAction(instruction);
+            ChangeGrid(instructionAction, _grid);
+            CalculateNumberOfLights(_grid).Should().Be(expected);
         }
 
         [Test]
         public void Should_be_able_to_translate_intructions()
         {
-            var instruction = "toggle 461,550 through 564,900";
+            const string instruction = "toggle 499,499 through 500,500";
             var intructionAction = new InstructionAction(instruction);
 
+            intructionAction.Action.Should().Be(LightAction.Toggle);
+            intructionAction.FromX.Should().Be(499);
+            intructionAction.FromY.Should().Be(499);
+            intructionAction.ToX.Should().Be(500);
+            intructionAction.ToY.Should().Be(500);
         }
 
         [Test]
@@ -70,20 +81,19 @@ namespace Roslin.AdventOfCode.Day6
         [TestCase(0, 0, 999, 0, 1000)]
         public void Should_be_able_to_turnOn_lights(int fromX, int fromY, int toX, int toY, int result)
         {
-            var grid = new bool[1000, 1000];
+            var instructionAction = new InstructionAction {Action = LightAction.TurnOn, FromX = fromX, FromY = fromY, ToX = toX, ToY = toY};
+            ChangeGrid(instructionAction, _grid);
 
-            ChangeGrid(fromX, fromY, toX, toY, grid, LightAction.TurnOn);
-
-            var calculateNumberOfLights = CalculateNumberOfLights(grid);
+            var calculateNumberOfLights = CalculateNumberOfLights(_grid);
             calculateNumberOfLights.Should().Be(result);
         }
 
-        private static void ChangeGrid(int fromX, int fromY, int toX, int toY, bool[,] grid, LightAction action)
+        private static void ChangeGrid(InstructionAction instruction, bool[,] grid) 
         {
-            for (var i = fromX; i <= toX; i++)
-                for (var j = fromY; j <= toY; j++)
+            for (var i = instruction.FromX; i <= instruction.ToX; i++)
+                for (var j = instruction.FromY; j <= instruction.ToY; j++)
                 {
-                    switch (action)
+                    switch (instruction.Action)
                     {
                         case LightAction.TurnOn:
                             grid[i, j] = true;
