@@ -55,6 +55,7 @@
     <Compile Include="InstructionAction.cs" />
     <Compile Include="LightAction.cs" />
     <Compile Include="PartOne.cs" />
+    <Compile Include="PartTwo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

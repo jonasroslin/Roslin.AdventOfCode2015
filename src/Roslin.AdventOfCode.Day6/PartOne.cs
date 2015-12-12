@@ -16,14 +16,6 @@ namespace Roslin.AdventOfCode.Day6
         {
             _grid = new bool[1000, 1000];
         }
-        public IEnumerable<string> ReadInput()
-        {
-            var assembly = Assembly.GetExecutingAssembly();
-            using (var stream = assembly.GetManifestResourceStream("Roslin.AdventOfCode.Day6.input.txt"))
-            using (var reader = new StreamReader(stream))
-                while (reader.Peek() >= 0)
-                    yield return reader.ReadLine();
-        }
 
         [Test]
         public void Should_be_able_to_follow_all_instructions()
@@ -117,6 +109,15 @@ namespace Roslin.AdventOfCode.Day6
                         lights++;
 
             return lights;
+        }
+
+        public IEnumerable<string> ReadInput()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            using (var stream = assembly.GetManifestResourceStream("Roslin.AdventOfCode.Day6.input.txt"))
+            using (var reader = new StreamReader(stream))
+                while (reader.Peek() >= 0)
+                    yield return reader.ReadLine();
         }
     }
 }
