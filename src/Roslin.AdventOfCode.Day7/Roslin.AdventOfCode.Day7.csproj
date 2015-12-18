@@ -67,6 +67,12 @@
   <ItemGroup>
     <EmbeddedResource Include="input.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Roslin.AdventOfCode.Common\Roslin.AdventOfCode.Common.csproj">
+      <Project>{3C09A744-62B0-47B4-ACBB-C5042A4CE84D}</Project>
+      <Name>Roslin.AdventOfCode.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

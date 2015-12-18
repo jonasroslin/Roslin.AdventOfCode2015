@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using FluentAssertions;
 using NUnit.Framework;
+using Roslin.AdventOfCode.Common;
 
 namespace Roslin.AdventOfCode.Day7
 {
@@ -71,20 +72,12 @@ namespace Roslin.AdventOfCode.Day7
         [Test]
         public void Should_be_able_to_follow_all_instructions()
         {
-            var instructions = ReadInput().Select(input => (Instruction) input).ToList();
+            var readInput = Input.Read("Roslin.AdventOfCode.Day7.input.txt", Assembly.GetExecutingAssembly()).ToList();
+            var instructions = readInput.Select(input => (Instruction) input).ToList();
 
             var wireCircuit = new WireCircuit { Instructions = instructions };
             wireCircuit.SendSignalsUntilGivenGateIsCompleted("a");
             wireCircuit.UltimatelySignals["a"].Should().Be(46065);
-        }
-
-        public IEnumerable<string> ReadInput()
-        {
-            var assembly = Assembly.GetExecutingAssembly();
-            using (var stream = assembly.GetManifestResourceStream("Roslin.AdventOfCode.Day7.input.txt"))
-            using (var reader = new StreamReader(stream))
-                while (reader.Peek() >= 0)
-                    yield return reader.ReadLine();
         }
     }
 }

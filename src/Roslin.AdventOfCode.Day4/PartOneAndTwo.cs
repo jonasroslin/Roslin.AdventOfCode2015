@@ -8,7 +8,7 @@ namespace Roslin.AdventOfCode.Day4
     [TestFixture]
     public class PartOneAndTwo
     {
-        [Test]
+        [Test, Ignore("May take some time to run")]
         [TestCase("pqrstuv", 1048970, "00000")]
         [TestCase("abcdef", 609043, "00000")]
         [TestCase("ckczppom", 117946, "00000")]

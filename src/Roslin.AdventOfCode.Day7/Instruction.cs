@@ -5,19 +5,19 @@ namespace Roslin.AdventOfCode.Day7
 {
     public class Instruction
     {
-        public Gate Gate { get; set; }
-        public string Result { get; set; }
+        public Gate Gate { get; }
+        public string Result { get; }
 
         public static implicit operator Instruction(string instruction)
         {
-            var strings = instruction.Split(new[] { " -> " }, StringSplitOptions.None);
-            var opImplicit = new Instruction
-            {
-                Gate = strings.First(),
-                Result = strings.Last(),
-            };
+            var instructionParts = instruction.Split(new[] { " -> " }, StringSplitOptions.None);
+            return new Instruction(instructionParts.First(), instructionParts.Last());
+        }
 
-            return opImplicit;
+        private Instruction(Gate gate, string result)
+        {
+            Gate = gate;
+            Result = result;
         }
 
         public int? CalculateResult()
