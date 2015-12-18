@@ -55,8 +55,9 @@
     <Compile Include="PartOne.cs" />
     <Compile Include="PartTwo.cs" />
     <Compile Include="PresentBox.cs" />
+    <Compile Include="PresentBoxTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WrappingPaper.cs" />
+    <Compile Include="When_creating_present_box.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
