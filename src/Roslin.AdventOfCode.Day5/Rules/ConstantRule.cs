@@ -1,4 +1,4 @@
-﻿namespace Roslin.AdventOfCode.Day5
+﻿namespace Roslin.AdventOfCode.Day5.Rules
 {
     public class ConstantRule : IRule
     {

@@ -1,6 +1,6 @@
 using System.Linq;
 
-namespace Roslin.AdventOfCode.Day5
+namespace Roslin.AdventOfCode.Day5.Rules
 {
     public class AtLeastOneLetterWhichRepeatsWithExactlyOneLetterBetweenThemRule : IRule
     {

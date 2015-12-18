@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslin.AdventOfCode.Day6", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslin.AdventOfCode.Day7", "Roslin.AdventOfCode.Day7\Roslin.AdventOfCode.Day7.csproj", "{2988BC6E-E336-4B37-9C69-55336EB99141}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslin.AdventOfCode.Common", "Roslin.AdventOfCode.Common\Roslin.AdventOfCode.Common.csproj", "{3C09A744-62B0-47B4-ACBB-C5042A4CE84D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{2988BC6E-E336-4B37-9C69-55336EB99141}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2988BC6E-E336-4B37-9C69-55336EB99141}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2988BC6E-E336-4B37-9C69-55336EB99141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C09A744-62B0-47B4-ACBB-C5042A4CE84D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C09A744-62B0-47B4-ACBB-C5042A4CE84D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C09A744-62B0-47B4-ACBB-C5042A4CE84D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C09A744-62B0-47B4-ACBB-C5042A4CE84D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

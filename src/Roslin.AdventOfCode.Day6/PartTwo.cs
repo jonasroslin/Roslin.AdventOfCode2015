@@ -1,8 +1,9 @@
 using System.Collections.Generic;
-using System.IO;
+using System.Linq;
 using System.Reflection;
 using FluentAssertions;
 using NUnit.Framework;
+using Roslin.AdventOfCode.Common;
 
 namespace Roslin.AdventOfCode.Day6
 {
@@ -20,7 +21,7 @@ namespace Roslin.AdventOfCode.Day6
         [Test]
         public void Should_be_able_to_follow_all_instructions()
         {
-            var instructions = ReadInput();
+            var instructions = Input.Read("Roslin.AdventOfCode.Day6.input.txt", Assembly.GetExecutingAssembly()).ToList();
             foreach (var instruction in instructions)
             {
                 var instructionAction = new InstructionAction(instruction);
@@ -89,15 +90,6 @@ namespace Roslin.AdventOfCode.Day6
                     lights += grid[i, j];
 
             return lights;
-        }
-
-        public IEnumerable<string> ReadInput()
-        {
-            var assembly = Assembly.GetExecutingAssembly();
-            using (var stream = assembly.GetManifestResourceStream("Roslin.AdventOfCode.Day6.input.txt"))
-            using (var reader = new StreamReader(stream))
-                while (reader.Peek() >= 0)
-                    yield return reader.ReadLine();
         }
     }
 }

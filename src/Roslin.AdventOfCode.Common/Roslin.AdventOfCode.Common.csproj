@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8C3AAABF-1350-4F4A-A9E9-4C04AB16ADD2}</ProjectGuid>
+    <ProjectGuid>{3C09A744-62B0-47B4-ACBB-C5042A4CE84D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Roslin.AdventOfCode.Day2</RootNamespace>
-    <AssemblyName>Roslin.AdventOfCode.Day2</AssemblyName>
+    <RootNamespace>Roslin.AdventOfCode.Common</RootNamespace>
+    <AssemblyName>Roslin.AdventOfCode.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,18 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FluentAssertions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentAssertions.4.1.0\lib\net45\FluentAssertions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FluentAssertions.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentAssertions.4.1.0\lib\net45\FluentAssertions.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="nunit.framework, Version=3.0.5813.39031, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.0.1\lib\net45\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,24 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PartOne.cs" />
-    <Compile Include="PartTwo.cs" />
-    <Compile Include="PresentBox.cs" />
-    <Compile Include="PresentBoxTests.cs" />
+    <Compile Include="ReadInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="When_creating_present_box.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="input.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Roslin.AdventOfCode.Common\Roslin.AdventOfCode.Common.csproj">
-      <Project>{3c09a744-62b0-47b4-acbb-c5042a4ce84d}</Project>
-      <Name>Roslin.AdventOfCode.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
