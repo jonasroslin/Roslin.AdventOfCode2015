@@ -14,5 +14,21 @@ namespace Roslin.AdventOfCode.Common
                 while (reader.Peek() >= 0)
                     yield return reader.ReadLine();
         }
+
+        public static int CountChars(string path, Assembly assembly)
+        {
+            using (var stream = assembly.GetManifestResourceStream(path))
+            {
+                int count = 0;
+
+                using (var sr = new StreamReader(stream))
+                {
+                    while (sr.Read() != -1)
+                        count++;
+                }
+                return count;
+            }
+           
+        }
     }
 }
