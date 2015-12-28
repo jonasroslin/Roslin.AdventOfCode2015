@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Roslin.AdventOfCode.Day8
 {
@@ -18,6 +19,19 @@ namespace Roslin.AdventOfCode.Day8
         private static string PatternForStringLiteral()
         {
             return @"^""(\\x..|\\.|.)*""$";
+        }
+
+        public static int CountEncodedCharacters(string s)
+        {
+            var sum = s.Sum(DeterminesHowManyCharsToCount);
+            return sum + 2;
+        }
+
+        private static int DeterminesHowManyCharsToCount(char c)
+        {
+            if (c == '\\' || c == '\"')
+                return 2;
+            return 1;
         }
     }
 }

@@ -29,6 +29,16 @@ namespace Roslin.AdventOfCode.Day8
         }
 
         [Test]
+        [TestCase(0, 6)]
+        [TestCase(1, 9)]
+        [TestCase(2, 16)]
+        [TestCase(3, 11)]
+        public void Should_be_able_to_count_encoded_characters_of_code(int index, int expected)
+        {
+            SantasList.CountEncodedCharacters(_list[index]).Should().Be(expected);
+        }
+
+        [Test]
         [TestCase(0, 0)]
         [TestCase(1, 3)]
         [TestCase(2, 7)]
